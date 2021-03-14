@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5EDB6D5B-2399-4AFD-9073-3D2753757301}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Map_Editor</RootNamespace>
+    <AssemblyName>Map Editor</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ApplicationIcon>mapeditor.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\..\Program Files %28x86%29\AruaROSE 2\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>E:\Program Files %28x86%29\Triggersoft\Rose Online\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>true</Optimize>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="irrKlang.NET2.0">
+      <HintPath>..\..\irrKlang-1.3.0\irrKlang-1.3.0\bin\dotnet-2.0\irrKlang.NET2.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework, Version=3.1.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=3.1.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86" />
+    <Reference Include="PresentationFramework.Aero">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Forms\Controls\AnimationTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Controls\BrushTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Controls\CollisionTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Controls\ConstructionTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Controls\DecorationTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Controls\EffectTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Controls\EventTriggerTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Controls\HeightTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Controls\MonsterTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Controls\NPCTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Controls\NPC\PreviewPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Controls\Options\ObjectsFeatures.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Controls\SoundTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Controls\SpawnPointTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Controls\TileTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Controls\WarpGateTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Controls\WaterTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\New.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Open.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Tools\Options.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Search.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Main.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Engine\FileManager\Data\TileSet.cs" />
+    <Compile Include="Engine\ToolManager\Tools\Terrain\Brush.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Brush\Placement.cs" />
+    <Compile Include="Forms\Controls\BrushTool.xaml.cs">
+      <DependentUpon>BrushTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Main.xaml.cs">
+      <DependentUpon>Main.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Engine\CameraManager\CameraManager.cs" />
+    <Compile Include="Engine\CameraManager\Types\Orthographic.cs" />
+    <Compile Include="Engine\CameraManager\Types\Perspective.cs" />
+    <Compile Include="Engine\Extensions\BoundingBox.cs" />
+    <Compile Include="Engine\Extensions\BoundingFrustum.cs" />
+    <Compile Include="Engine\Extensions\BoundingSphere.cs" />
+    <Compile Include="Engine\Extensions\Effect.cs" />
+    <Compile Include="Engine\Extensions\MouseState.cs" />
+    <Compile Include="Engine\Extensions\Quaternion.cs" />
+    <Compile Include="Engine\Extensions\Ray.cs" />
+    <Compile Include="Engine\FileManager\Character\CHR.cs" />
+    <Compile Include="Engine\FileManager\Data\LTB.cs" />
+    <Compile Include="Engine\FileManager\Data\STB.cs" />
+    <Compile Include="Engine\FileManager\Data\STL.cs" />
+    <Compile Include="Engine\FileManager\FileHandler.cs" />
+    <Compile Include="Engine\FileManager\FileManager.cs" />
+    <Compile Include="Engine\FileManager\Map\HIM.cs" />
+    <Compile Include="Engine\FileManager\Map\IFO.cs" />
+    <Compile Include="Engine\FileManager\Map\LIT.cs" />
+    <Compile Include="Engine\FileManager\Map\MOV.cs" />
+    <Compile Include="Engine\FileManager\Map\TIL.cs" />
+    <Compile Include="Engine\FileManager\Map\ZON.cs" />
+    <Compile Include="Engine\FileManager\Models\ZMO.cs" />
+    <Compile Include="Engine\FileManager\Models\ZMS.cs" />
+    <Compile Include="Engine\FileManager\Models\ZSC.cs" />
+    <Compile Include="Engine\Main.cs" />
+    <Compile Include="Engine\MapManager\Characters\Monsters.cs" />
+    <Compile Include="Engine\MapManager\Characters\NPCs.cs" />
+    <Compile Include="Engine\MapManager\Events\SpawnPoints.cs" />
+    <Compile Include="Engine\MapManager\Events\WarpGates.cs" />
+    <Compile Include="Engine\MapManager\MapManager.cs" />
+    <Compile Include="Engine\MapManager\Misc\Effects.cs" />
+    <Compile Include="Engine\MapManager\Misc\Sounds.cs" />
+    <Compile Include="Engine\MapManager\Objects\Animation.cs" />
+    <Compile Include="Engine\MapManager\Objects\Collision.cs" />
+    <Compile Include="Engine\MapManager\Objects\Construction.cs" />
+    <Compile Include="Engine\MapManager\Objects\Decoration.cs" />
+    <Compile Include="Engine\MapManager\Objects\EventTriggers.cs" />
+    <Compile Include="Engine\MapManager\Objects\Object.cs" />
+    <Compile Include="Engine\MapManager\Terrain\Heightmaps.cs" />
+    <Compile Include="Engine\MapManager\Misc\Sky.cs" />
+    <Compile Include="Engine\MapManager\Terrain\Water.cs" />
+    <Compile Include="Engine\RenderManager\AnimationManager.cs" />
+    <Compile Include="Engine\RenderManager\ObjectManager.cs" />
+    <Compile Include="Engine\RenderManager\Primitives\Cone.cs" />
+    <Compile Include="Engine\RenderManager\Primitives\Cylinder.cs" />
+    <Compile Include="Engine\RenderManager\Primitives\Radius.cs" />
+    <Compile Include="Engine\RenderManager\Primitives\Sphere.cs" />
+    <Compile Include="Engine\RenderManager\TextureManager.cs" />
+    <Compile Include="Engine\ShaderManager\ShaderManager.cs" />
+    <Compile Include="Engine\ShaderManager\Shaders\Animation.cs" />
+    <Compile Include="Engine\ShaderManager\Shaders\Height.cs" />
+    <Compile Include="Engine\ShaderManager\Shaders\HeightEditing.cs" />
+    <Compile Include="Engine\ShaderManager\Shaders\NPC.cs" />
+    <Compile Include="Engine\ShaderManager\Shaders\Object.cs" />
+    <Compile Include="Engine\ShaderManager\Shaders\SimpleColour.cs" />
+    <Compile Include="Engine\ShaderManager\Shaders\SimpleTexture.cs" />
+    <Compile Include="Engine\ShaderManager\Shaders\TileRotation.cs" />
+    <Compile Include="Engine\SpriteManager\FontManager.cs" />
+    <Compile Include="Engine\SpriteManager\ToolTipManager.cs" />
+    <Compile Include="Engine\ToolManager\Interfaces\ITool.cs" />
+    <Compile Include="Engine\ToolManager\Manipulation\CursorTranslate.cs" />
+    <Compile Include="Engine\ToolManager\Manipulation\Translate.cs" />
+    <Compile Include="Engine\ToolManager\ToolManager.cs" />
+    <Compile Include="Engine\ToolManager\Tools\Characters\Monsters.cs" />
+    <Compile Include="Engine\ToolManager\Tools\Characters\NPCs.cs" />
+    <Compile Include="Engine\ToolManager\Tools\Events\SpawnPoints.cs" />
+    <Compile Include="Engine\ToolManager\Tools\Events\WarpGates.cs" />
+    <Compile Include="Engine\ToolManager\Tools\Misc\Effects.cs" />
+    <Compile Include="Engine\ToolManager\Tools\Misc\Sounds.cs" />
+    <Compile Include="Engine\ToolManager\Tools\Objects\Animation.cs" />
+    <Compile Include="Engine\ToolManager\Tools\Objects\Collision.cs" />
+    <Compile Include="Engine\ToolManager\Tools\Objects\Construction.cs" />
+    <Compile Include="Engine\ToolManager\Tools\Objects\Decoration.cs" />
+    <Compile Include="Engine\ToolManager\Tools\Objects\EventTriggers.cs" />
+    <Compile Include="Engine\ToolManager\Tools\Objects\Object.cs" />
+    <Compile Include="Engine\ToolManager\Tools\Terrain\Height.cs" />
+    <Compile Include="Engine\ToolManager\Tools\Terrain\Tiles.cs" />
+    <Compile Include="Engine\ToolManager\Tools\Terrain\Water.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Animation\Added.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Animation\Animation.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Animation\ObjectChanged.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Animation\Positioned.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Animation\Removed.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Animation\ValueChanged.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Collision\Added.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Collision\Collision.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Collision\Positioned.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Collision\Removed.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Collision\ValueChanged.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Construction\Added.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Construction\Construction.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Construction\LightmapRemoved.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Construction\ObjectChanged.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Construction\Positioned.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Construction\Removed.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Construction\ValueChanged.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Decoration\Added.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Decoration\Decoration.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Decoration\LightmapRemoved.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Decoration\ObjectChanged.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Decoration\Positioned.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Decoration\Removed.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Decoration\ValueChanged.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Effects\Added.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Effects\Effect.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Effects\Positioned.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Effects\Removed.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Effects\ValueChanged.cs" />
+    <Compile Include="Engine\UndoManager\Commands\EventTriggers\Added.cs" />
+    <Compile Include="Engine\UndoManager\Commands\EventTriggers\EventTrigger.cs" />
+    <Compile Include="Engine\UndoManager\Commands\EventTriggers\ObjectChanged.cs" />
+    <Compile Include="Engine\UndoManager\Commands\EventTriggers\Positioned.cs" />
+    <Compile Include="Engine\UndoManager\Commands\EventTriggers\Removed.cs" />
+    <Compile Include="Engine\UndoManager\Commands\EventTriggers\ValueChanged.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Height\Modify.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Interfaces\ICommand.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Monsters\Added.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Monsters\Monster.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Monsters\Positioned.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Monsters\Removed.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Monsters\ValueChanged.cs" />
+    <Compile Include="Engine\UndoManager\Commands\NPCs\Added.cs" />
+    <Compile Include="Engine\UndoManager\Commands\NPCs\CharacterChanged.cs" />
+    <Compile Include="Engine\UndoManager\Commands\NPCs\NPC.cs" />
+    <Compile Include="Engine\UndoManager\Commands\NPCs\Positioned.cs" />
+    <Compile Include="Engine\UndoManager\Commands\NPCs\Removed.cs" />
+    <Compile Include="Engine\UndoManager\Commands\NPCs\ValueChanged.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Sounds\Added.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Sounds\Positioned.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Sounds\Removed.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Sounds\Sound.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Sounds\ValueChanged.cs" />
+    <Compile Include="Engine\UndoManager\Commands\SpawnPoints\Added.cs" />
+    <Compile Include="Engine\UndoManager\Commands\SpawnPoints\Positioned.cs" />
+    <Compile Include="Engine\UndoManager\Commands\SpawnPoints\Removed.cs" />
+    <Compile Include="Engine\UndoManager\Commands\SpawnPoints\SpawnPoint.cs" />
+    <Compile Include="Engine\UndoManager\Commands\SpawnPoints\ValueChanged.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Tiles\Placement.cs" />
+    <Compile Include="Engine\UndoManager\Commands\WarpGates\Added.cs" />
+    <Compile Include="Engine\UndoManager\Commands\WarpGates\Positioned.cs" />
+    <Compile Include="Engine\UndoManager\Commands\WarpGates\Removed.cs" />
+    <Compile Include="Engine\UndoManager\Commands\WarpGates\ValueChanged.cs" />
+    <Compile Include="Engine\UndoManager\Commands\WarpGates\WarpGate.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Water\Added.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Water\Animation.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Water\Removed.cs" />
+    <Compile Include="Engine\UndoManager\Commands\Water\ValueChanged.cs" />
+    <Compile Include="Engine\UndoManager\UndoManager.cs" />
+    <Compile Include="Forms\Controls\AnimationTool.xaml.cs">
+      <DependentUpon>AnimationTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\CollisionTool.xaml.cs">
+      <DependentUpon>CollisionTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\ConstructionTool.xaml.cs">
+      <DependentUpon>ConstructionTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\DecorationTool.xaml.cs">
+      <DependentUpon>DecorationTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\EffectTool.xaml.cs">
+      <DependentUpon>EffectTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\EventTriggerTool.xaml.cs">
+      <DependentUpon>EventTriggerTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\HeightTool.xaml.cs">
+      <DependentUpon>HeightTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\MonsterTool.xaml.cs">
+      <DependentUpon>MonsterTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\NPCTool.xaml.cs">
+      <DependentUpon>NPCTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\NPC\PreviewPanel.xaml.cs">
+      <DependentUpon>PreviewPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\Options\ObjectsFeatures.xaml.cs">
+      <DependentUpon>ObjectsFeatures.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\SoundTool.xaml.cs">
+      <DependentUpon>SoundTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\SpawnPointTool.xaml.cs">
+      <DependentUpon>SpawnPointTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\TileTool.xaml.cs">
+      <DependentUpon>TileTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\WarpGateTool.xaml.cs">
+      <DependentUpon>WarpGateTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Controls\WaterTool.xaml.cs">
+      <DependentUpon>WaterTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\New.xaml.cs">
+      <DependentUpon>New.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Open.xaml.cs">
+      <DependentUpon>Open.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tools\Options.xaml.cs">
+      <DependentUpon>Options.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Search.xaml.cs">
+      <DependentUpon>Search.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Misc\ConfigurationManager.cs" />
+    <Compile Include="Misc\Output.cs" />
+    <Compile Include="Misc\Properties\Editors\CharacterEditor.cs" />
+    <Compile Include="Misc\Properties\EffectProperty.cs" />
+    <Compile Include="Misc\Properties\EventTriggerProperty.cs" />
+    <Compile Include="Misc\Properties\MonsterSpawnProperty.cs" />
+    <Compile Include="Misc\Properties\NPCProperty.cs" />
+    <Compile Include="Misc\Properties\ObjectProperty.cs" />
+    <Compile Include="Misc\Properties\SoundProperty.cs" />
+    <Compile Include="Misc\Properties\SpawnPointProperty.cs" />
+    <Compile Include="Misc\Properties\WarpGateProperty.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Content\Effect.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Empty.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\EventTrigger.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Inactive.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Sound.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\SpawnPoint.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\WarpGate.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Add.png" />
+    <Resource Include="Resources\Icons\Animation.png" />
+    <Resource Include="Resources\Icons\Clone.png" />
+    <Resource Include="Resources\Icons\Collision.png" />
+    <Resource Include="Resources\Icons\Copy.png" />
+    <Resource Include="Resources\Icons\Cursor.png" />
+    <Resource Include="Resources\Icons\Cut.png" />
+    <Resource Include="Resources\Icons\Effect.png" />
+    <Resource Include="Resources\Icons\Event.png" />
+    <Resource Include="Resources\Icons\Find.png" />
+    <Resource Include="Resources\Icons\Flatten.png" />
+    <Resource Include="Resources\Icons\Help.png" />
+    <Resource Include="Resources\Icons\House.png" />
+    <Resource Include="Resources\Icons\Lower.png" />
+    <Resource Include="Resources\Icons\Modify.png" />
+    <Resource Include="Resources\Icons\Monster.png" />
+    <Resource Include="Resources\Icons\New.png" />
+    <Resource Include="Resources\Icons\NPC.png" />
+    <Resource Include="Resources\Icons\Open.png" />
+    <Resource Include="Resources\Icons\Paste.png" />
+    <Resource Include="Resources\Icons\Pause.png" />
+    <Resource Include="Resources\Icons\Pipette.png" />
+    <Resource Include="Resources\Icons\Play.png" />
+    <Resource Include="Resources\Icons\Position.png" />
+    <Resource Include="Resources\Icons\Raise.png" />
+    <Resource Include="Resources\Icons\Redo.png" />
+    <Resource Include="Resources\Icons\Remove.png" />
+    <Resource Include="Resources\Icons\Save.png" />
+    <Resource Include="Resources\Icons\Smooth.png" />
+    <Resource Include="Resources\Icons\Sound.png" />
+    <Resource Include="Resources\Icons\SpawnPoint.png" />
+    <Resource Include="Resources\Icons\Stop.png" />
+    <Resource Include="Resources\Icons\Terrain.png" />
+    <Resource Include="Resources\Icons\Tiles.png" />
+    <Resource Include="Resources\Icons\Tree.png" />
+    <Resource Include="Resources\Icons\Undo.png" />
+    <Resource Include="Resources\Icons\WarpGate.png" />
+    <Resource Include="Resources\Icons\Water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="mapeditor.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\Fonts\Verdana12.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\Images\ToolTip_Left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Images\ToolTip_Middle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Images\ToolTip_Right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\FollowTerrain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\SnapToGrid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\CursorManipulation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Brush.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

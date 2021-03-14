@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Map_Editor.Forms.Controls.BrushTool"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    MinHeight="465" Width="300">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Expander Header="Brushes" Margin="10" IsExpanded="True" Name="BrushExpander">
+            <Grid Background="White" SnapsToDevicePixels="True">
+                <ScrollViewer Name="ImageView" SnapsToDevicePixels="True">
+                    <StackPanel SnapsToDevicePixels="True" />
+                </ScrollViewer>
+            </Grid>
+        </Expander>
+    </ScrollViewer>
+</UserControl>

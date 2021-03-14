@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="Map_Editor.Forms.Controls.HeightTool"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    MinHeight="465" Width="300">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Grid.Column="1">
+            <Expander Header="Tool" Margin="10" IsExpanded="True" Name="ToolExpander">
+                <Grid Height="195" Background="White">
+                    <ToolBar Height="27" Style="{StaticResource SubToolBar}" VerticalAlignment="Top" Name="HeightOptions">
+                        <ToolBar.Background>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <GradientStop Color="#FFBCC7D7" Offset="0" />
+                                <GradientStop Color="#FFBDC7D8" Offset="1" />
+                            </LinearGradientBrush>
+                        </ToolBar.Background>
+                        <ToggleButton Height="24" IsEnabled="True" Margin="3,0,0,0" Name="Raise" ToolTip="Raise" Width="24" Click="Tool_Click">
+                            <Image Height="16" Source="..\..\Resources\Icons\Raise.png" Width="16" />
+                        </ToggleButton>
+                        <ToggleButton Height="24" IsEnabled="True" Margin="3,0,0,0" Name="Lower" ToolTip="Lower" Width="24" Click="Tool_Click">
+                            <Image Height="16" Source="..\..\Resources\Icons\Lower.png" Width="16" />
+                        </ToggleButton>
+                        <ToggleButton Height="24" IsEnabled="True" Margin="3,0,0,0" Name="Flatten" ToolTip="Flatten" Width="24" Click="Tool_Click">
+                            <Image Height="16" Source="..\..\Resources\Icons\Flatten.png" Width="16" />
+                        </ToggleButton>
+                        <ToggleButton Height="24" IsEnabled="True" Margin="3,0,0,0" Name="Smooth" ToolTip="Smooth" Width="24" Click="Tool_Click">
+                            <Image Height="16" Source="..\..\Resources\Icons\Smooth.png" Width="16" />
+                        </ToggleButton>
+                    </ToolBar>
+                    <RadioButton Margin="10,37,0,0" Name="Square" HorizontalAlignment="Left" Width="120" IsChecked="True" Height="16" VerticalAlignment="Top" Checked="Square_Checked">Square</RadioButton>
+                    <RadioButton Height="16" HorizontalAlignment="Left" Margin="10,59,0,0" Name="Circle" VerticalAlignment="Top" Width="120" Checked="Circle_Checked">Circle</RadioButton>
+                    <Separator Height="4" Margin="9,84,8,0" Name="separator1" VerticalAlignment="Top" />
+                    <Slider Height="22" Margin="94,94,6,0" Name="InnerRadius" VerticalAlignment="Top" ValueChanged="InnerRadius_ValueChanged" Maximum="20" Minimum="1" SmallChange="1" Value="0" />
+                    <Label Height="28" Margin="6,92,0,0" Name="label1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="84" HorizontalContentAlignment="Right">Inner Radius</Label>
+                    <Slider Height="22" Margin="94,122,6,0" Name="OutterRadius" VerticalAlignment="Top" ValueChanged="OutterRadius_ValueChanged" Maximum="20" Minimum="1" SmallChange="1" Value="1" />
+                    <Label Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="6,120,0,0" Name="label2" VerticalAlignment="Top" Width="84">Outter Radius</Label>
+                    <Slider Height="22" Margin="94,158,6,0" Name="Power" VerticalAlignment="Top" SmallChange="1" Maximum="100" ValueChanged="Power_ValueChanged" />
+                    <Label Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="6,156,0,0" Name="label3" VerticalAlignment="Top" Width="84">Power</Label>
+                </Grid>
+            </Expander>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Map_Editor.Forms.Controls.WaterTool"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    MinHeight="602" Width="300">
+    <StackPanel Grid.Column="1">
+        <Expander Header="Tool" Margin="10" IsExpanded="True" Name="ToolExpander">
+            <Grid Height="27" Background="White">
+                <ToolBar VerticalAlignment="Top" Style="{StaticResource SubToolBar}" Height="27">
+                    <ToolBar.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#FFBCC7D7" Offset="0" />
+                            <GradientStop Color="#FFBDC7D8" Offset="1" />
+                        </LinearGradientBrush>
+                    </ToolBar.Background>
+                    <ToggleButton Height="24" Margin="3,0,0,0" Name="Add" ToolTip="Add" Width="24" IsEnabled="True" Checked="Add_Checked" Unchecked="Add_Unchecked">
+                        <Image Height="16" Source="..\..\Resources\Icons\Add.png" Width="16" />
+                    </ToggleButton>
+                    <Button Height="24" Margin="3,0,0,0" Name="Remove" ToolTip="Remove" Width="24" IsEnabled="False" Click="Remove_Click">
+                        <Image Height="16" Source="..\..\Resources\Icons\Remove.png" Width="16" />
+                    </Button>
+                </ToolBar>
+            </Grid>
+        </Expander>
+        <Expander Header="Dimensions" Margin="10,0,10,10" IsExpanded="True">
+            <Grid Height="180" Background="White">
+                <Slider Height="22" Margin="55,17,17,0" VerticalAlignment="Top" Minimum="0" Maximum="160" Name="X1" SmallChange="1" ValueChanged="Size_ValueChanged" PreviewMouseUp="Size_PreviewMouseUp" />
+                <Label Margin="13,13,0,0" HorizontalAlignment="Left" Width="36" Height="28" VerticalAlignment="Top" HorizontalContentAlignment="Right">X1</Label>
+                <Slider Height="22" Margin="55,45,17,0" Maximum="160" Minimum="0" Name="Y1" VerticalAlignment="Top" SmallChange="1" ValueChanged="Size_ValueChanged" PreviewMouseUp="Size_PreviewMouseUp" />
+                <Label Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="13,41,0,0" VerticalAlignment="Top" Width="36">Y1</Label>
+                <Slider Height="22" Margin="55,79,17,0" Maximum="160" Minimum="0" Name="X2" VerticalAlignment="Top" SmallChange="1" ValueChanged="Size_ValueChanged" PreviewMouseUp="Size_PreviewMouseUp" />
+                <Label HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="13,75,0,0" Width="36" Height="28" VerticalAlignment="Top">X2</Label>
+                <Slider Height="22" Margin="55,107,17,0" Maximum="160" Minimum="0" Name="Y2" VerticalAlignment="Top" SmallChange="1" ValueChanged="Size_ValueChanged" PreviewMouseUp="Size_PreviewMouseUp" />
+                <Label Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="13,103,0,0" VerticalAlignment="Top" Width="36">Y2</Label>
+                <Label Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="7,137,0,0" VerticalAlignment="Top" Width="36">Z</Label>
+                <WindowsFormsHost Height="23" Margin="55,0,23,18" Name="ZHost" VerticalAlignment="Bottom">
+                    <wf:TextBox LostFocus="Z_LostFocus" KeyUp="Z_KeyUp" TextChanged="Z_TextChanged" Text="0" />
+                </WindowsFormsHost>
+            </Grid>
+        </Expander>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="Map_Editor.Forms.Controls.TileTool"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    MinHeight="465" Width="300">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Grid.Column="1">
+            <Expander Header="Tool" Margin="10" IsExpanded="True" Name="ToolExpander">
+                <Grid Height="95" Background="White">
+                    <ToolBar Height="27" Style="{StaticResource SubToolBar}" VerticalAlignment="Top">
+                        <ToolBar.Background>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <GradientStop Color="#FFBCC7D7" Offset="0" />
+                                <GradientStop Color="#FFBDC7D8" Offset="1" />
+                            </LinearGradientBrush>
+                        </ToolBar.Background>
+                        <ToggleButton Height="24" IsEnabled="True" Margin="3,0,0,0" Name="EyeDropper" ToolTip="Eye Dropper" Width="24" Checked="EyeDropper_Checked" Unchecked="EyeDropper_Unchecked">
+                            <Image Height="16" Source="..\..\Resources\Icons\Pipette.png" Width="16" />
+                        </ToggleButton>
+                    </ToolBar>
+                    <RadioButton Margin="10,39,0,0" Name="SinglePlacement" HorizontalAlignment="Left" Width="120" IsChecked="True" Click="SinglePlacement_Click" Height="16" VerticalAlignment="Top">Single Placement</RadioButton>
+                    <RadioButton HorizontalAlignment="Left" Margin="10,61,0,0" Name="MultiplePlacement" Width="120" Click="SinglePlacement_Click" Height="16" VerticalAlignment="Top">Multiple Placement</RadioButton>
+                    <ComboBox Margin="140,58,18,0" Name="MultipleSelection" IsEnabled="False" HorizontalContentAlignment="Stretch" Height="23" VerticalAlignment="Top">
+                        <ComboBoxItem>3x3</ComboBoxItem>
+                        <ComboBoxItem>5x5</ComboBoxItem>
+                        <ComboBoxItem>7x7</ComboBoxItem>
+                        <ComboBoxItem>9x9</ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+            </Expander>
+            <Expander Header="Tiles" Margin="10,0,10,10" IsExpanded="True" Name="TilesExpander">
+                <Grid Height="430" Background="White" SnapsToDevicePixels="True">
+                    <ToolBar Style="{StaticResource SubToolBar}" VerticalAlignment="Top" Height="28">
+                        <ToolBar.Background>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <GradientStop Color="#FFBCC7D7" Offset="0" />
+                                <GradientStop Color="#FFBDC7D8" Offset="1" />
+                            </LinearGradientBrush>
+                        </ToolBar.Background>
+                        <Button Margin="3,0,0,0" Height="24" Width="24" Name="Find" ToolTip="Find" Click="Find_Click">
+                            <Image Height="16" Source="..\..\Resources\Icons\Find.png" Width="16" />
+                        </Button>
+                    </ToolBar>
+                    <ScrollViewer Name="ImageView" SnapsToDevicePixels="True" Margin="0,28,0,0">
+                        <StackPanel SnapsToDevicePixels="True" />
+                    </ScrollViewer>
+                </Grid>
+            </Expander>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,370 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="Map_Editor.Main"
+    Title="Map Editor" Height="552" Width="981" WindowState="Maximized" Loaded="Window_Loaded" Closed="Window_Closed" mc:Ignorable="d" Icon="mapeditor.ico" Closing="Window_Closing">
+    <Window.Resources>
+        <Style x:Key="OutputItem" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="mouseOverStoryBoard">
+                                <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Bd" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                    <SplineColorKeyFrame KeyTime="00:00:00" Value="#FFFFFFFF"/>
+                                    <SplineColorKeyFrame KeyTime="00:00:00.4000000" Value="#FFD1E0F8"/>
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Key="mouseOverStoryBoardEnd">
+                                <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Bd" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                    <SplineColorKeyFrame KeyTime="00:00:00" Value="#FFD1E0F8"/>
+                                    <SplineColorKeyFrame KeyTime="00:00:00.4000000" Value="#FFFFFFFF"/>
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Key="elementLoadedStoryBoard">
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Bd" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1" KeySpline="0,0,1,1"/>
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00.7000000" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Bd" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                    <SplineColorKeyFrame KeyTime="00:00:00" Value="#FF798EB1"/>
+                                    <SplineColorKeyFrame KeyTime="00:00:00.5000000" Value="#FFBAC6DC" KeySpline="0,0,1,1"/>
+                                    <SplineColorKeyFrame KeyTime="00:00:00.7000000" Value="#FFFFFFFF"/>
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </ControlTemplate.Resources>
+                        <Border
+    						BorderThickness="{TemplateBinding Border.BorderThickness}"
+    						Padding="{TemplateBinding Padding}"
+    						BorderBrush="{TemplateBinding Border.BorderBrush}"
+    						x:Name="Bd"
+    						SnapsToDevicePixels="True">
+                            <Border.Background>
+                                <SolidColorBrush Color="White" x:Name="brush"/>
+                            </Border.Background>
+                            <ContentPresenter
+    							Content="{TemplateBinding Content}"
+    							ContentTemplate="{TemplateBinding ContentTemplate}"
+    							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+    							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+    							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                                <BeginStoryboard x:Name="elementLoadedStoryBoard_BeginStoryboard" Storyboard="{StaticResource elementLoadedStoryBoard}"/>
+                            </EventTrigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard Storyboard="{StaticResource mouseOverStoryBoard}"/>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard x:Name="mouseOverStoryBoardEnd_BeginStoryboard" Storyboard="{StaticResource mouseOverStoryBoardEnd}"/>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Offset="0.0" Color="#2b3a54" />
+            <GradientStop Offset="0.1" Color="#304b6a" />
+            <GradientStop Offset="0.5" Color="#3f557e" />
+            <GradientStop Offset="1.0" Color="#2e3f58" />
+        </LinearGradientBrush>
+    </Window.Background>
+    <DockPanel>
+        <Menu Height="24" DockPanel.Dock="Top" Foreground="#455267" Padding="0,1,0,0" FontWeight="475">
+            <Menu.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Offset="0.0" Color="#cdd5e2" />
+                    <GradientStop Offset="0.1" Color="#c6cedd" />
+                    <GradientStop Offset="0.9" Color="#b2bed0" />
+                    <GradientStop Offset="1.0" Color="#9caac1" />
+                </LinearGradientBrush>
+            </Menu.Background>
+            <MenuItem Header="File">
+                <MenuItem Header="New" Name="New" Click="New_Click">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Resources\Icons\New.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Open" Name="Open" Click="Open_Click" InputGestureText="Ctrl+O">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Resources\Icons\Open.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Save" Name="Save" Click="Save_Click" IsEnabled="False" InputGestureText="Ctrl+S">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Resources\Icons\Save.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="Exit" Name="Exit" Click="Exit_Click" />
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Undo" Name="Undo" Click="Undo_Click" IsEnabled="True" InputGestureText="Ctrl+Z">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Resources\Icons\Undo.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Redo" Name="Redo" Click="Redo_Click" IsEnabled="True" InputGestureText="Ctrl+Y">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Resources\Icons\Redo.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="Cut" Name="Cut" Click="Cut_Click" IsEnabled="False" InputGestureText="Ctrl+X">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Resources\Icons\Cut.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Copy" Name="Copy" Click="Copy_Click" IsEnabled="False" InputGestureText="Ctrl+C">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Resources\Icons\Copy.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Paste" Name="Paste" Click="Paste_Click" IsEnabled="False" InputGestureText="Ctrl+V">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Resources\Icons\Paste.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Tools">
+                <MenuItem Header="Options" Name="Options" Click="Options_Click" IsEnabled="True" />
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="About" Name="About" Click="About_Click">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Resources\Icons\Help.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBarTray.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Offset="0.0" Color="#9cabc6" />
+                    <GradientStop Offset="0.8" Color="#9cabc6" />
+                    <GradientStop Offset="1.0" Color="#abb5cf" />
+                </LinearGradientBrush>
+            </ToolBarTray.Background>
+            <ToolBar Band="0" BandIndex="0" Height="28" HorizontalAlignment="Left">
+                <ToolBar.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Offset="0.0" Color="#bcc7d7" />
+                        <GradientStop Offset="1.0" Color="#bdc7d8" />
+                    </LinearGradientBrush>
+                </ToolBar.Background>
+                <Button Width="24" Height="24" Name="QuickNew" ToolTip="New" Click="New_Click">
+                    <Image Width="16" Height="16" Source="Resources\Icons\New.png" />
+                </Button>
+                <Button Width="24" Height="24" Name="QuickOpen" ToolTip="Open" Click="Open_Click">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Open.png" />
+                </Button>
+                <Button Width="24" Height="24" Name="QuickSave" ToolTip="Save" IsEnabled="False" Click="Save_Click">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Save.png" />
+                </Button>
+            </ToolBar>
+            <ToolBar Band="0" BandIndex="0" Height="28" HorizontalAlignment="Left">
+                <ToolBar.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Offset="0.0" Color="#bcc7d7" />
+                        <GradientStop Offset="1.0" Color="#bdc7d8" />
+                    </LinearGradientBrush>
+                </ToolBar.Background>
+                <Button Width="24" Height="24" Click="Cut_Click" IsEnabled="False" Name="QuickCut" ToolTip="Cut">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Cut.png" />
+                </Button>
+                <Button Width="24" Height="24" Click="Copy_Click" IsEnabled="False" Name="QuickCopy" ToolTip="Copy">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Copy.png" />
+                </Button>
+                <Button Width="24" Height="24" Click="Paste_Click" IsEnabled="False" Name="QuickPaste" ToolTip="Paste">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Paste.png" />
+                </Button>
+                <Separator Background="#8591a2" />
+                <Button Width="24" Height="24" Name="QuickUndo" ToolTip="Undo" Click="Undo_Click" IsEnabled="True">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Undo.png" />
+                </Button>
+                <Button Width="24" Height="24" Name="QuickRedo" ToolTip="Redo" Click="Redo_Click" IsEnabled="True">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Redo.png" />
+                </Button>
+            </ToolBar>
+            <ToolBar Name="ManipulationToolBar" Band="0" BandIndex="0" Height="28" HorizontalAlignment="Left">
+                <ToolBar.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Offset="0.0" Color="#bcc7d7" />
+                        <GradientStop Offset="1.0" Color="#bdc7d8" />
+                    </LinearGradientBrush>
+                </ToolBar.Background>
+                <ToggleButton Width="24" Height="24" Name="NoManipulation" ToolTip="None" Click="Manipulation_Click" IsEnabled="False">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Cursor.png" />
+                </ToggleButton>
+                <ToggleButton Width="24" Height="24" Name="CursorManipulation" ToolTip="None" Click="Manipulation_Click" IsEnabled="False">
+                    <Image Width="16" Height="16" Source="Resources\Icons\CursorManipulation.png" />
+                </ToggleButton>
+                <ToggleButton Width="24" Height="24" Name="PositionManipulation" ToolTip="Position" Click="Manipulation_Click" IsEnabled="False">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Position.png" />
+                </ToggleButton>
+                <Separator Background="#8591a2" />
+                <ToggleButton Width="24" Height="24" Name="FollowTerrain" ToolTip="Follow Terrain" IsEnabled="False">
+                    <Image Width="16" Height="16" Source="Resources\Icons\FollowTerrain.png" />
+                </ToggleButton>
+                <ComboBox Name="SnapToGrid" Width="90" Background="#cbd4e4" Style="{DynamicResource {x:Type ComboBox}}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="-2,-2,0,0" RenderOptions.BitmapScalingMode="NearestNeighbor" Width="16" Height="16" Source="Resources\Icons\SnapToGrid.png" />
+                        <TextBlock Margin="3,0,0,0">Disabled</TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="-2,-2,0,0" RenderOptions.BitmapScalingMode="NearestNeighbor" Width="16" Height="16" Source="Resources\Icons\SnapToGrid.png" />
+                        <TextBlock Margin="3,0,0,0">0.125</TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="-2,-2,0,0" RenderOptions.BitmapScalingMode="NearestNeighbor" Width="16" Height="16" Source="Resources\Icons\SnapToGrid.png" />
+                        <TextBlock Margin="3,0,0,0">0.25</TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="-2,-2,0,0" RenderOptions.BitmapScalingMode="NearestNeighbor" Width="16" Height="16" Source="Resources\Icons\SnapToGrid.png" />
+                        <TextBlock Margin="3,0,0,0">0.5</TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="-2,-2,0,0" RenderOptions.BitmapScalingMode="NearestNeighbor" Width="16" Height="16" Source="Resources\Icons\SnapToGrid.png" />
+                        <TextBlock Margin="3,0,0,0">1</TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="-2,-2,0,0" RenderOptions.BitmapScalingMode="NearestNeighbor" Width="16" Height="16" Source="Resources\Icons\SnapToGrid.png" />
+                        <TextBlock Margin="3,0,0,0">2</TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="-2,-2,0,0" RenderOptions.BitmapScalingMode="NearestNeighbor" Width="16" Height="16" Source="Resources\Icons\SnapToGrid.png" />
+                        <TextBlock Margin="3,0,0,0">4</TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="-2,-2,0,0" RenderOptions.BitmapScalingMode="NearestNeighbor" Width="16" Height="16" Source="Resources\Icons\SnapToGrid.png" />
+                        <TextBlock Margin="3,0,0,0">8</TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="-2,-2,0,0" RenderOptions.BitmapScalingMode="NearestNeighbor" Width="16" Height="16" Source="Resources\Icons\SnapToGrid.png" />
+                        <TextBlock Margin="3,0,0,0">16</TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="-2,-2,0,0" RenderOptions.BitmapScalingMode="NearestNeighbor" Width="16" Height="16" Source="Resources\Icons\SnapToGrid.png" />
+                        <TextBlock Margin="3,0,0,0">32</TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="-2,-2,0,0" RenderOptions.BitmapScalingMode="NearestNeighbor" Width="16" Height="16" Source="Resources\Icons\SnapToGrid.png" />
+                        <TextBlock Margin="3,0,0,0">64</TextBlock>
+                    </StackPanel>
+                </ComboBox>
+            </ToolBar>
+            <ToolBar Name="SoundToolBar" Band="0" BandIndex="0" Height="28" HorizontalAlignment="Left">
+                <ToolBar.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Offset="0.0" Color="#bcc7d7" />
+                        <GradientStop Offset="1.0" Color="#bdc7d8" />
+                    </LinearGradientBrush>
+                </ToolBar.Background>
+                <Button Width="24" Height="24" Name="PlaySound" ToolTip="Play" Click="PlaySound_Click" IsEnabled="False">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Play.png" />
+                </Button>
+                <ToggleButton Width="24" Height="24" Name="PauseSound" ToolTip="Pause" Click="PauseSound_Click" IsEnabled="False">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Pause.png" />
+                </ToggleButton>
+                <Button Width="24" Height="24" Name="StopSound" ToolTip="Stop" Click="StopSound_Click" IsEnabled="False">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Stop.png" />
+                </Button>
+            </ToolBar>
+            <ToolBar Name="ToolToolBar" Band="0" BandIndex="0" Height="28" HorizontalAlignment="Left">
+                <ToolBar.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Offset="0.0" Color="#bcc7d7" />
+                        <GradientStop Offset="1.0" Color="#bdc7d8" />
+                    </LinearGradientBrush>
+                </ToolBar.Background>
+                <ToggleButton Width="24" Height="24" Name="HeightTool" Click="Tool_Click" IsEnabled="False" ToolTip="Height">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Terrain.png" />
+                </ToggleButton>
+                <ToggleButton Width="24" Height="24" Name="TileTool" Click="Tool_Click" IsEnabled="False" ToolTip="Tiles">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Tiles.png" />
+                </ToggleButton>
+                <ToggleButton Width="24" Height="24" Name="BrushTool" Click="Tool_Click" IsEnabled="False" ToolTip="Brush">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Brush.png" />
+                </ToggleButton>
+                <ToggleButton Width="24" Height="24" Name="WaterTool" Click="Tool_Click" IsEnabled="False" ToolTip="Water">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Water.png" />
+                </ToggleButton>
+                <Separator Background="#8591a2" />
+                <ToggleButton Width="24" Height="24" Name="DecorationTool" Click="Tool_Click" IsEnabled="False" ToolTip="Decoration">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Tree.png" />
+                </ToggleButton>
+                <ToggleButton Width="24" Height="24" Name="ConstructionTool" Click="Tool_Click" IsEnabled="False" ToolTip="Construction">
+                    <Image Width="16" Height="16" Source="Resources\Icons\House.png" />
+                </ToggleButton>
+                <ToggleButton Width="24" Height="24" Name="EventTriggerTool" Click="Tool_Click" IsEnabled="False" ToolTip="Event Triggers">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Event.png" />
+                </ToggleButton>
+                <ToggleButton Width="24" Height="24" Name="AnimationTool" Click="Tool_Click" IsEnabled="False" ToolTip="Animation">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Animation.png" />
+                </ToggleButton>
+                <Separator Background="#8591a2" />
+                <ToggleButton Width="24" Height="24" Name="NPCTool" Click="Tool_Click" IsEnabled="False" ToolTip="NPCs">
+                    <Image Width="16" Height="16" Source="Resources\Icons\NPC.png" />
+                </ToggleButton>
+                <ToggleButton Width="24" Height="24" Name="MonsterTool" Click="Tool_Click" IsEnabled="False" ToolTip="Monsters">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Monster.png" />
+                </ToggleButton>
+                <Separator Background="#8591a2" />
+                <ToggleButton Width="24" Height="24" Name="SpawnPointTool" Click="Tool_Click" IsEnabled="False" ToolTip="Spawn Points">
+                    <Image Width="16" Height="16" Source="Resources\Icons\SpawnPoint.png" />
+                </ToggleButton>
+                <ToggleButton Width="24" Height="24" Name="WarpGateTool" Click="Tool_Click" IsEnabled="False" ToolTip="Warp Gates">
+                    <Image Width="16" Height="16" Source="Resources\Icons\WarpGate.png" />
+                </ToggleButton>
+                <Separator Background="#8591a2" />
+                <ToggleButton Width="24" Height="24" Name="SoundTool" Click="Tool_Click" IsEnabled="False" ToolTip="Sounds">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Sound.png" />
+                </ToggleButton>
+                <ToggleButton Width="24" Height="24" Name="EffectTool" Click="Tool_Click" IsEnabled="False" ToolTip="Effects">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Effect.png" />
+                </ToggleButton>
+                <ToggleButton Width="24" Height="24" Name="CollisionTool" Click="Tool_Click" IsEnabled="False" ToolTip="Collision">
+                    <Image Width="16" Height="16" Source="Resources\Icons\Collision.png" />
+                </ToggleButton>
+            </ToolBar>
+        </ToolBarTray>
+        <StatusBar Height="23" DockPanel.Dock="Bottom" Background="#293852">
+            <StatusBarItem DockPanel.Dock="Right">
+                <TextBlock Foreground="#bcc3d0" Margin="5,0" Name="Position"></TextBlock>
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Foreground="#bcc3d0" Margin="5,0">Ready</TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+        <Grid>
+            <DockPanel>
+                <Expander Margin="6,6,6,0" IsExpanded="True" Header="Output" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" Name="OutputExpander">
+                    <ListBox x:Name="OutputList" ItemContainerStyle="{StaticResource OutputItem}" Height="166">
+                        <ListBox.BitmapEffect>
+                            <DropShadowBitmapEffect Color="#2e4368" Direction="0" ShadowDepth="0" />
+                        </ListBox.BitmapEffect>
+                    </ListBox>
+                </Expander>
+                <Grid VerticalAlignment="Stretch" Name="MiddleGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="666.5*" />
+                        <ColumnDefinition Width="292.5*" x:Name="RightColumn" />
+                    </Grid.ColumnDefinitions>
+                    <WindowsFormsHost x:Name="RenderPanelHost">
+                        <wf:Panel KeyUp="Panel_KeyUp" Click="Panel_Click" />
+                    </WindowsFormsHost>
+                    <ScrollViewer Grid.Column="1" Name="ToolHost" VerticalScrollBarVisibility="Auto" />
+                    <GridSplitter HorizontalAlignment="Left" Width="4" Background="#FF273655" Grid.Column="1" />
+                </Grid>
+            </DockPanel>
+        </Grid>
+    </DockPanel>
+</Window>

@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="Map_Editor.Forms.Controls.Options.ObjectsFeatures"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="446" Width="506">
+    <Grid Background="White">
+        <GroupBox Header="Characters" Margin="10,46,10,0" Height="48" VerticalAlignment="Top" Foreground="#FF4B4B4B">
+            <Grid>
+                <CheckBox HorizontalAlignment="Left" Margin="6,6,0,3" Name="Monsters" Width="218" Checked="GridOutline_CheckChanged" Unchecked="GridOutline_CheckChanged" Foreground="#FF4B4B4B">Monsters</CheckBox>
+                <CheckBox HorizontalAlignment="Right" Margin="0,6,7,3" Name="NPCs" Width="225" Checked="GridOutline_CheckChanged" Unchecked="GridOutline_CheckChanged" Foreground="#FF4B4B4B">NPCs</CheckBox>
+            </Grid>
+        </GroupBox>
+        <TextBlock Height="34" Margin="10,10,10,0" VerticalAlignment="Top" Foreground="#FF4B4B4B">
+            Select which objects and features you want to be drawn in the map editor.<LineBreak />
+            These options can be used to take screenshots clear of any unwanted miscellaneous.
+        </TextBlock>
+        <GroupBox Header="Events" Margin="10,100,10,0" Height="48" VerticalAlignment="Top" Foreground="#FF4B4B4B">
+            <Grid>
+                <CheckBox HorizontalAlignment="Left" Margin="6,6,0,3" Name="SpawnPoints" Width="218" Checked="GridOutline_CheckChanged" Unchecked="GridOutline_CheckChanged" Foreground="#FF4B4B4B">Spawn Points</CheckBox>
+                <CheckBox HorizontalAlignment="Right" Margin="0,6,7,3" Name="WarpGates" Width="225" Checked="GridOutline_CheckChanged" Unchecked="GridOutline_CheckChanged" Foreground="#FF4B4B4B">Warp Gates</CheckBox>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Misc." Margin="10,154,10,222" Foreground="#FF4B4B4B">
+            <Grid>
+                <CheckBox Height="16.04" HorizontalAlignment="Left" Margin="6,6,0,0" Name="Effects" VerticalAlignment="Top" Width="218" Checked="GridOutline_CheckChanged" Unchecked="GridOutline_CheckChanged" Foreground="#FF4B4B4B">Effects</CheckBox>
+                <CheckBox Height="16.04" HorizontalAlignment="Left" Margin="6,0,0,3" Name="Sounds" VerticalAlignment="Bottom" Width="218" Checked="GridOutline_CheckChanged" Unchecked="GridOutline_CheckChanged" Foreground="#FF4B4B4B">Sounds</CheckBox>
+                <CheckBox HorizontalAlignment="Right" Margin="0,6,6,0" Name="Sky" Width="226" Height="16.04" VerticalAlignment="Top" Checked="GridOutline_CheckChanged" Unchecked="GridOutline_CheckChanged" Foreground="#FF4B4B4B">Sky</CheckBox>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Objects" Margin="10,0,10,124" Height="92" VerticalAlignment="Bottom" Foreground="#FF4B4B4B">
+            <Grid>
+                <CheckBox Height="16.04" HorizontalAlignment="Left" Margin="6,6,0,0" Name="Animation" VerticalAlignment="Top" Width="218" Checked="GridOutline_CheckChanged" Unchecked="GridOutline_CheckChanged" Foreground="#FF4B4B4B">Animation</CheckBox>
+                <CheckBox HorizontalAlignment="Left" Margin="6,28,0,25" Name="Construction" Width="218" Checked="GridOutline_CheckChanged" Unchecked="GridOutline_CheckChanged" Foreground="#FF4B4B4B">Construction</CheckBox>
+                <CheckBox Height="16.04" HorizontalAlignment="Right" Margin="0,6,6,0" Name="Collision" VerticalAlignment="Top" Width="226" Checked="GridOutline_CheckChanged" Unchecked="GridOutline_CheckChanged" Foreground="#FF4B4B4B">Collision</CheckBox>
+                <CheckBox HorizontalAlignment="Right" Margin="0,28,6,25" Name="Decoration" Width="226" Checked="GridOutline_CheckChanged" Unchecked="GridOutline_CheckChanged" Foreground="#FF4B4B4B">Decoration</CheckBox>
+                <CheckBox Height="16.04" HorizontalAlignment="Left" Margin="6,0,0,3" Name="EventTriggers" VerticalAlignment="Bottom" Width="218" Checked="GridOutline_CheckChanged" Unchecked="GridOutline_CheckChanged" Foreground="#FF4B4B4B">Event Triggers</CheckBox>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Terrain" Margin="10,0,10,70" Height="48" VerticalAlignment="Bottom" Foreground="#FF4B4B4B">
+            <Grid>
+                <CheckBox HorizontalAlignment="Left" Margin="6,6,0,3" Name="Heightmaps" Width="218" Checked="GridOutline_CheckChanged" Unchecked="GridOutline_CheckChanged" Foreground="#FF4B4B4B">Heightmaps</CheckBox>
+                <CheckBox HorizontalAlignment="Right" Margin="0,6,0,3" Name="Water" Width="230" Checked="GridOutline_CheckChanged" Unchecked="GridOutline_CheckChanged" Foreground="#FF4B4B4B">Water</CheckBox>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Features" Margin="10,0,10,13" Height="50" VerticalAlignment="Bottom" Foreground="#FF4B4B4B">
+            <Grid>
+                <CheckBox HorizontalAlignment="Left" Margin="6,6,0,5" Name="GridNumbers" Width="218" Checked="GridOutline_CheckChanged" Unchecked="GridOutline_CheckChanged" Foreground="#FF4B4B4B">Grid Numbers</CheckBox>
+                <CheckBox HorizontalAlignment="Right" Margin="0,6,1,5" Name="GridOutline" Width="230" Checked="GridOutline_CheckChanged" Unchecked="GridOutline_CheckChanged" Foreground="#FF4B4B4B">Grid Outline</CheckBox>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

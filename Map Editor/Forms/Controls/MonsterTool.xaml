@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="Map_Editor.Forms.Controls.MonsterTool"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    MinHeight="602" Width="300">
+    <StackPanel Grid.Column="1">
+        <Expander Header="Tool" Margin="10" IsExpanded="True" Name="ToolExpander">
+            <Grid Height="68" Background="White">
+                <CheckBox Margin="15,40,17,0" Name="DrawRadii" Height="16" VerticalAlignment="Top" Click="DrawRadii_Click">
+                    Draw Radii
+                </CheckBox>
+                <ToolBar VerticalAlignment="Top" Style="{StaticResource SubToolBar}" Height="27">
+                    <ToolBar.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#FFBCC7D7" Offset="0" />
+                            <GradientStop Color="#FFBDC7D8" Offset="1" />
+                        </LinearGradientBrush>
+                    </ToolBar.Background>
+                    <ToggleButton Height="24" Margin="3,0,0,0" Name="Add" Width="24" IsEnabled="True" ToolTip="Add" Checked="Add_Checked" Unchecked="Add_Unchecked">
+                        <Image Height="16" Source="..\..\Resources\Icons\Add.png" Width="16" />
+                    </ToggleButton>
+                    <Button Height="24" Margin="3,0,0,0" Name="Remove" Width="24" IsEnabled="False" ToolTip="Remove" Click="Remove_Click">
+                        <Image Height="16" Source="..\..\Resources\Icons\Remove.png" Width="16" />
+                    </Button>
+                    <Separator Background="#8591a2" />
+                    <ToggleButton Height="24" Margin="3,0,0,0" Name="Clone" Width="24" IsEnabled="False" ToolTip="Clone" Checked="Clone_Checked" Unchecked="Clone_Unchecked">
+                        <Image Height="16" Source="..\..\Resources\Icons\Clone.png" Width="16" />
+                    </ToggleButton>
+                </ToolBar>
+            </Grid>
+        </Expander>
+        <Expander Header="Basic Monsters" Margin="10,0,10,10" IsExpanded="True">
+            <Grid Height="111" Background="White">
+                <ListBox Name="BasicList" Margin="0,27,0,0" SelectionChanged="MonsterList_SelectionChanged" />
+                <ToolBar Height="27" Style="{StaticResource SubToolBar}" VerticalAlignment="Top">
+                    <ToolBar.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#FFBCC7D7" Offset="0" />
+                            <GradientStop Color="#FFBDC7D8" Offset="1" />
+                        </LinearGradientBrush>
+                    </ToolBar.Background>
+                    <ToggleButton Height="24" IsEnabled="False" Margin="3,0,0,0" Name="AddBasic" ToolTip="Add Monster" Checked="AddMonster_Checked" Unchecked="AddMonster_Unchecked" Width="24">
+                        <Image Height="16" Source="..\..\Resources\Icons\Add.png" Width="16" />
+                    </ToggleButton>
+                    <Button Height="24" IsEnabled="False" Margin="3,0,0,0" Name="RemoveBasic" ToolTip="Remove Monster" Click="RemoveMonster_Click" Width="24">
+                        <Image Height="16" Source="..\..\Resources\Icons\Remove.png" Width="16" />
+                    </Button>
+                    <Separator Background="#FF8591A2" />
+                    <ToggleButton Height="24" IsEnabled="False" Margin="3,0,0,0" Name="EditBasic" ToolTip="Edit Monster" Checked="EditMonster_Checked" Unchecked="EditMonster_Unchecked"  Width="24">
+                        <Image Height="16" Source="..\..\Resources\Icons\Modify.png" Width="16" />
+                    </ToggleButton>
+                    <Button Height="24" IsEnabled="False" Margin="3,0,0,0" Name="CloneBasic" ToolTip="Clone Monster" Click="CloneMonster_Click" Width="24">
+                        <Image Height="16" Source="..\..\Resources\Icons\Clone.png" Width="16" />
+                    </Button>
+                </ToolBar>
+            </Grid>
+        </Expander>
+        <Expander Header="Tactical Monsters" Margin="10,0,10,10" IsExpanded="True">
+            <Grid Height="111" Background="White">
+                <ListBox Name="TacticalList" Margin="0,27,0,0" SelectionChanged="MonsterList_SelectionChanged" />
+                <ToolBar Height="27" Style="{StaticResource SubToolBar}" VerticalAlignment="Top">
+                    <ToolBar.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#FFBCC7D7" Offset="0" />
+                            <GradientStop Color="#FFBDC7D8" Offset="1" />
+                        </LinearGradientBrush>
+                    </ToolBar.Background>
+                    <ToggleButton Height="24" IsEnabled="False" Margin="3,0,0,0" Name="AddTactical" ToolTip="Add Monster" Checked="AddMonster_Checked" Unchecked="AddMonster_Unchecked" Width="24">
+                        <Image Height="16" Source="..\..\Resources\Icons\Add.png" Width="16" />
+                    </ToggleButton>
+                    <Button Height="24" IsEnabled="False" Margin="3,0,0,0" Name="RemoveTactical" ToolTip="Remove Monster" Click="RemoveMonster_Click" Width="24">
+                        <Image Height="16" Source="..\..\Resources\Icons\Remove.png" Width="16" />
+                    </Button>
+                    <Separator Background="#FF8591A2" />
+                    <ToggleButton Height="24" IsEnabled="False" Margin="3,0,0,0" Name="EditTactical" ToolTip="Edit Monster" Checked="EditMonster_Checked" Unchecked="EditMonster_Unchecked" Width="24">
+                        <Image Height="16" Source="..\..\Resources\Icons\Modify.png" Width="16" />
+                    </ToggleButton>
+                    <Button Height="24" IsEnabled="False" Margin="3,0,0,0" Name="CloneTactical" ToolTip="Clone Monster" Click="CloneMonster_Click"  Width="24">
+                        <Image Height="16" Source="..\..\Resources\Icons\Clone.png" Width="16" />
+                    </Button>
+                </ToolBar>
+            </Grid>
+        </Expander>
+        <Expander Header="Properties" Margin="10,0,10,10" IsExpanded="False" Name="PropertiesExpander">
+            <Grid Height="250" Background="White">
+                <WindowsFormsHost Name="PropertiesHost">
+                    <wf:PropertyGrid BackColor="White" HelpVisible="False" ToolbarVisible="False" PropertyValueChanged="PropertyGrid_PropertyValueChanged" />
+                </WindowsFormsHost>
+            </Grid>
+        </Expander>
+    </StackPanel>
+</UserControl>
