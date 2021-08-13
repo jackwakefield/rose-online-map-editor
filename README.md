@@ -6,5 +6,5 @@ A map editor made around 2009/2010 for the game ROSE Online.
 
 Good question, my memory isn't that great. My best guess would be:
 
-- XNA 4.0
+- XNA 3.1
 - irrklang
