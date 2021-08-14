@@ -1,6 +1,6 @@
 # ROSE Online Map Editor
 
-A map editor made around 2009/2010 for the game ROSE Online.
+A map editor made around 2007 for the game ROSE Online.
 
 ## Prerequisites
 
